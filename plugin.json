@@ -1,0 +1,12 @@
+{
+  "name": "Better Styles",
+  "version": "1.0.0",
+  "author": "i3zs",
+  "description": "adds some style tweaks",
+  "type": "js",
+  "entry": "index.js",
+  "permissions": [],
+  "category": "utility",
+  "tags": ["styles"],
+  "license": "MIT"
+}
