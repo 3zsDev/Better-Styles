@@ -1,4 +1,4 @@
-export function activate({ importCSS }) {
+(() => {
   const customCSS = `
     .lyrics-panel .lyric-line.past.near,
     .lyrics-panel .lyric-line.past.mid,
@@ -6,6 +6,7 @@ export function activate({ importCSS }) {
       filter: none !important;
       opacity: 1 !important;
     }
+
     [data-theme=light] .lyrics-panel .lyric-line.past.near {
       color: rgba(0, 0, 0, 0.45) !important;
     }
@@ -26,8 +27,11 @@ export function activate({ importCSS }) {
       color: rgba(255, 255, 255, 0.2) !important;
     }
   `;
-  importCSS(customCSS);
-  console.log("better-styles init Successful");
-}
 
-export function deactivate() {}
+  const style = document.createElement("style");
+  style.id = "better-styles";
+  style.textContent = customCSS;
+  document.head.appendChild(style);
+
+  console.log("better-styles init Successful");
+})();
