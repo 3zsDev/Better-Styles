@@ -27,6 +27,7 @@ export function activate({ importCSS }) {
     }
   `;
   importCSS(customCSS);
+  console.log("better-styles init Successful");
 }
 
 export function deactivate() {}
