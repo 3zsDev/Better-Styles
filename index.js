@@ -1,5 +1,5 @@
 (() => {
-  const customCSS = `
+  const css = `
     .lyrics-panel .lyric-line.past.near,
     .lyrics-panel .lyric-line.past.mid,
     .lyrics-panel .lyric-line.past.far {
@@ -26,12 +26,36 @@
     [data-theme=dark] .lyrics-panel .lyric-line.past.far {
       color: rgba(255, 255, 255, 0.2) !important;
     }
-  `;
 
-  const style = document.createElement("style");
-  style.id = "better-styles";
-  style.textContent = customCSS;
-  document.head.appendChild(style);
+    .playback-controls[class*="svelte"] {
+      overflow: visible !important;
+    }
 
-  console.log("better-styles init Successful");
+    .play-btn[class*="svelte"] {
+      position: relative;
+      z-index: 10;
+    }
+
+    .separator[class*="svelte"] {
+      visibility: hidden;
+      position: relative;
+    }
+
+    .separator[class*="svelte"]::after {
+      content: "-";
+      visibility: visible;
+      position: absolute;
+      inset: 0;
+      text-align: center;
+    }
+`;
+
+  let style = document.getElementById("better-styles");
+  if (!style) {
+    style = document.createElement("style");
+    style.id = "better-styles";
+    document.head.appendChild(style);
+  }
+  style.textContent = css;
+  console.log("[BetterS] Init");
 })();
